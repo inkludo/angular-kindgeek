@@ -1,0 +1,64 @@
+
+
+  .search {
+      text-align: center;
+  }
+
+  .form-search{
+    width: 40%;
+    font-size: 28px;
+  }
+   
+  .card-container{
+    
+    width: 75vw;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin:  auto;
+  
+    @media only screen and (max-width: 800px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: 1fr 1fr ;
+    }
+  }
+
+  .title-card{
+    display: flex;
+    justify-content: space-between;
+    app-favorite-btn{
+      margin-top: -5px;
+      float: right;
+    }
+    width: 15vw;
+  }
+
+  mat-card-subtitle{
+    font-size: 15px;
+    margin-top: -15px;
+    margin-bottom: 25px;
+  }
+
+  .movie-card {
+    max-width: 420px;
+    margin: 50px 10px 10px 10px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  input{
+    width: 300px;
+  }
+  
+  .img-responsive{
+    width: 300px;
+    height: 450px;
+    margin: 0 auto;
+  }

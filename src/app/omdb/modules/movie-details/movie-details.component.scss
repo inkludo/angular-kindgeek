@@ -1,0 +1,91 @@
+.details-card {
+    max-width: 60vw;
+    margin: 0 auto;
+  }
+
+  .similar-movies{
+    max-width: 50vw;
+  }
+
+  
+  
+  
+  .detailBodyImage{
+    width: 300px !important;
+    height: 450px !important;
+  }
+
+  
+  .size-24 button svg {
+    width: 36px;
+    height: 36px;
+    transform: scale(2);
+}
+
+  .delete-icon{
+    color: yellow;
+  }
+
+  .detailHeadingItems {
+    color: #adadad;
+    font-size: small;
+  }
+  
+  
+  .detailBodyItemsMargin {
+    margin: 0;
+  }
+  
+  .detailBodyItems {
+    color: #66afe9;
+    display: inline;
+    font-size: 15px
+  }
+
+  .awards{
+    height: 5vh;
+    p{
+      text-align: center;
+      position: relative;
+      top: 20%;
+    }
+  }
+
+
+  .card-title{
+    display: flex;
+    justify-content: space-between;
+    app-favorite-btn{
+      justify-content: space-around;
+      float: right;
+    }
+    width: 58vw;
+  }
+  b{
+    font-size: 18px
+  }
+  
+  .detailBodySeason {
+    color: #66afe9;
+    display: inline;
+    font-size: 16px
+  }
+  
+  .detailBodyItemFixVotes {
+    color: #5e5e5e;
+    display: inline;
+    font-size: 13px
+  }
+  
+  .detailMetascore{
+    background-color:#66CC33;
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+    text-align: center;
+    color: white;padding-top: 5px;
+    margin-top: 15px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: 33%;
+  }

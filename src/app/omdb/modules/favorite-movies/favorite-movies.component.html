@@ -1,0 +1,53 @@
+
+  <div class="container-fluid">
+      <div >
+        <div >
+          <h3 *ngIf="listFavoriteMovies.length < 1" >You have not created any list yet.</h3>
+          <div class="table-container"  *ngIf="listFavoriteMovies.length >= 1">
+            <table id="movies">
+              <thead>
+              <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Genre</th>
+                <th>Awards</th>
+                <th>Box Office</th>
+                <th>Rated</th>
+                <th>IMDB Votes</th>
+                <th>IMDB</th>
+                <th>Rotten Tomatoes</th>
+                <th>Metacritic</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let movie of listFavoriteMovies; let i = index">
+                <td [ngSwitch]="movie?.Poster === 'N/A' || movie?.Poster !== 'N/A'">
+                  <img *ngSwitchCase="movie?.Poster !== 'N/A'" src="{{ movie?.Poster }}" [ngClass]="{detailBodyImage: true}" class="img-responsive">
+                  <img *ngSwitchCase="movie?.Poster === 'N/A'" src="http://www.novelupdates.com/img/noimagefound.jpg"  [ngClass]="{detailBodyImage: true}" class="img-responsive">
+                <td><b>{{ movie.Title }}</b><small [ngStyle]="{'white-space': 'nowrap'}"> ( {{ movie.Year }} ) </small></td>
+                <td>{{ movie.Type }}</td>
+                <td>{{ movie.Genre }}</td>
+                <td *ngIf="movie.Awards !== 'N/A'">{{ movie.Awards }}</td>
+                <td *ngIf="movie.Awards === 'N/A'">/</td>
+                <td *ngIf="movie.BoxOffice !== 'N/A'">{{ movie.BoxOffice }}</td>
+                <td *ngIf="movie.BoxOffice === 'N/A'">/</td>
+                <td *ngIf="movie.Rated !== 'N/A'">{{ movie.Rated }}</td>
+                <td *ngIf="movie.Rated === 'N/A'">/</td>
+                <td *ngIf="movie.imdbVotes !== 'N/A'">{{ movie.imdbVotes }}</td>
+                <td *ngIf="movie.imdbVotes === 'N/A'">/</td>
+                <td *ngFor="let rating of movie.Ratings">{{ rating.Value }}</td>
+                <td *ngIf="!movie.Ratings || movie.Ratings.length < 1" >/</td>
+                <td *ngIf="!movie.Ratings || movie.Ratings.length < 2" >/</td>
+                <td *ngIf="!movie.Ratings || movie.Ratings.length < 3" >/</td>
+                <td>
+                    <button mat-stroked-button color="warn" (click)="removeFromList(movie)">Delete</button>
+                    
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Google Map</span>
+      <button  mat-button [matMenuTriggerFor]="omdb">Omdb</button>
+      <button mat-button routerLink="/map" >Google Map</button>
+      <button mat-button routerLink="/postcodes">Postcodes</button>
+      <span class="spacer"></span>
+      <button class="logout" (click)="authService.LogOut()" mat-button>Logout</button>
+
+<mat-menu #omdb="matMenu">
+  <button routerLink="/omdb/search" mat-menu-item><a></a>Search Movie</button>
+  <button routerLink="/omdb/favorite" mat-menu-item>Favorites Movies</button>
+</mat-menu>
+
+</mat-toolbar-row>

@@ -1,0 +1,13 @@
+<app-google-map-header></app-google-map-header>
+
+<div >
+  <div class="input-container">
+    <mat-form-field class="form-search">
+      <input #search class="form-search" matInput placeholder="Search location" type="text" [formControl]="searchControl">
+    </mat-form-field>
+  </div>
+
+  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  </agm-map>
+</div>

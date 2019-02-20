@@ -1,0 +1,80 @@
+<mat-card *ngIf="movie" class="details-card">
+    <mat-card-header>
+       <div>
+        
+      </div> 
+      <mat-card-title>
+        <div class="card-title">
+          <h2>{{ movie?.Title }}<small [ngStyle]="{color: '#adadad'}"> ( {{ movie?.Year }} )</small></h2>
+          <app-favorite-btn    [movie] = 'movie' ></app-favorite-btn>
+        </div>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <div>
+          <span *ngIf="movie?.Rated && movie?.Rated !== 'N/A'" [ngClass]="{detailHeadingItems: true}"> {{ movie?.Rated }}
+            |</span>
+          <span *ngIf="movie?.Runtime && movie?.Runtime !== 'N/A'" [ngClass]="{detailHeadingItems: true}"> {{
+            movie?.Runtime }} |</span>
+          <span *ngIf="movie?.Genre && movie?.Genre !== 'N/A'" [ngClass]="{detailHeadingItems: true}"> {{ movie?.Genre }}
+            |</span>
+          <span *ngIf="movie?.Language && movie?.Language !== 'N/A'" [ngClass]="{detailHeadingItems: true}"> {{
+            movie?.Language }} |</span>
+          <span *ngIf="movie?.Released && movie?.Released !== 'N/A'" [ngClass]="{detailHeadingItems: true}"> {{
+            movie?.Released }}</span>
+          <span *ngIf="movie?.Country && movie?.Country !== 'N/A'" [ngClass]="{detailHeadingItems: true}"> ({{
+            movie?.Country }}) </span>
+        </div>
+      </mat-card-subtitle>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <span class="img-responsive"  [ngSwitch]="movie?.Poster === 'N/A' || movie?.Poster !== 'N/A'" [ngStyle]="{'margin-right': '15px', 'margin-bottom': '15px'}">
+        <img *ngSwitchCase="movie?.Poster !== 'N/A'" src="{{ movie?.Poster }}" [ngClass]="{detailBodyImage: true}" class="img-responsive">
+        <img *ngSwitchCase="movie?.Poster === 'N/A'" src="http://www.novelupdates.com/img/noimagefound.jpg" [ngClass]="{detailBodyImage: true}"
+          class="img-responsive">
+      </span>
+     <div >
+      <h5 *ngIf="movie?.Plot && movie?.Plot !== 'N/A'">
+        <b [ngStyle]="{detailBodyItemsArticle: true}">Summary: </b>
+        <small [ngStyle]="{color: '#5e5e5e'}" [ngClass]="{detailBodyItems: true}">{{ movie?.Plot }}</small>
+      </h5>
+      <h5 *ngIf="movie?.Director && movie?.Director !== 'N/A'">
+        <b [ngStyle]="{color: '#5e5e5e'}">Director: </b>
+        <span [ngClass]="{detailBodyItems: true}">{{ movie?.Director }}</span>
+      </h5>
+      <h5 *ngIf="movie?.Writer && movie?.Writer !== 'N/A'">
+        <b [ngStyle]="{color: '#5e5e5e'}">Writer: </b>
+        <span [ngClass]="{detailBodyItems: true}">{{ movie?.Writer }}</span>
+      </h5>
+      <h5 *ngIf="movie?.Actors && movie?.Actors !== 'N/A'">
+        <b [ngStyle]="{color: '#5e5e5e'}">Actors: </b>
+        <span [ngClass]="{detailBodyItems: true}">{{ movie?.Actors }}</span>
+      </h5>
+      <h5 *ngIf="movie?.Production && movie?.Production !== 'N/A'">
+        <b [ngStyle]="{color: '#5e5e5e'}">Production: </b>
+        <span [ngClass]="{detailBodyItems: true}">{{ movie?.Production }}</span>
+      </h5>
+    </div>
+      
+      <div [ngClass]="{detailBodyItemsMargin: true}">
+        <span *ngIf="movie?.Metascore && movie?.Metascore !== 'N/A'" [ngClass]="{detailMetascore: true}">{{
+          movie?.Metascore }}</span>
+        <h2 *ngIf="movie?.imdbRating && movie?.imdbRating !== 'N/A'" [ngStyle]="{display: 'inline'}">{{ movie?.imdbRating
+          }}</h2>
+        <span *ngIf="movie?.imdbVotes && movie?.imdbVotes !== 'N/A'">
+          <span [ngClass]="{detailBodyItemFixVotes: true}">/10 | Votes: </span>
+          <span [ngClass]="{detailBodyItems: true}">{{ movie?.imdbVotes }}</span>
+        </span>
+      </div>
+      <div class="awards" *ngIf="movie?.Awards && movie?.Awards !== 'N/A'" [ngStyle]="{'background-color': '#EFE3A4'}">
+        <p class="text-center"><b>{{ movie?.Awards }}</b></p>
+      </div>
+  
+    </mat-card-content>
+    
+    <br>
+   <div *ngIf='movie'>
+  
+    <app-similar-movies class="similar-movies" [id] = 'movie.imdbID' ></app-similar-movies>
+  </div> 
+  </mat-card>

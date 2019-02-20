@@ -1,0 +1,10 @@
+<div *ngIf='movie'>
+  
+<button mat-icon-button (click)="addToCollection(movie.imdbID)" *ngIf="!checkMovieInList(movie)">
+    <mat-icon style="font-size: 36px !important" class="collect">star_border</mat-icon>
+  </button>
+   <button color="accent" mat-icon-button (click)="removeFromCollection(movie)" *ngIf="checkMovieInList(movie)">
+    <mat-icon style="font-size: 36px !important" class="collect">star</mat-icon>
+  </button> 
+</div>
+

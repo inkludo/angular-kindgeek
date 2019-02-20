@@ -1,0 +1,45 @@
+.header{
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.row{
+  margin-top: 10px;
+}
+
+mat-form-field{
+  width: 50vw;
+}
+
+
+
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 30vw;
+}
+
+
+
+
+.header{
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.row{
+  margin-top: 10px;
+}
+
+.container{
+  position: absolute;
+top: 40%;
+left:50%;
+transform: translate(-50%,-50%);
+}

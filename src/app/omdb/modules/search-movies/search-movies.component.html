@@ -1,0 +1,41 @@
+ <div class="search">
+
+  <h2>Movie Search</h2>
+
+  <mat-form-field class="form-search">
+    <input matInput placeholder="Search the movie" type="text" [formControl]="searchControl">
+  </mat-form-field>
+
+</div>
+
+
+<div class="card-container">
+
+  <mat-card *ngFor='let movie of listMovies ' class="movie-card">
+    <mat-card-header>
+      <mat-card-title>
+         <div class="title-card">
+          {{ movie.Title }}  ({{ movie.Year }}) 
+          
+           <app-favorite-btn  [id] = 'movie.imdbID' [movie] = 'movie' ></app-favorite-btn> 
+        </div> 
+      </mat-card-title>
+      <mat-card-subtitle > {{movie.Type | titlecase}} </mat-card-subtitle>
+
+    </mat-card-header>
+    <span [ngSwitch]="movie.Poster === 'N/A' || movie.Poster !== 'N/A'" class="img-responsive">
+      <img mat-card-image class="img-responsive" alt='movie.Title' *ngSwitchCase="movie.Poster !== 'N/A'" src="{{ movie.Poster }}">
+      <img mat-card-image class="img-responsive" alt='not found image' *ngSwitchCase="movie.Poster === 'N/A'" src="http://www.novelupdates.com/img/noimagefound.jpg">
+        
+    </span>
+
+
+    <mat-card-actions>
+      
+    <app-more-info-btn [id] = 'movie.imdbID' ></app-more-info-btn>
+    
+    </mat-card-actions>
+  </mat-card>
+</div> 
+
+

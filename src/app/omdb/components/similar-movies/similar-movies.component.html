@@ -1,0 +1,25 @@
+<h1 class="similar-mov-header">Similar Movies</h1>
+<div id="card">
+  
+    <mat-card   *ngFor='let movie of listMovies '  class="example-card">
+        <mat-card-header>
+          <mat-card-title>
+              <div>
+                  {{ movie.original_title }} 
+                </div>
+          </mat-card-title>
+          <mat-card-subtitle> {{ movie.release_date | date: "yyyy"  }}</mat-card-subtitle>
+           
+        </mat-card-header>
+        <span  [ngSwitch]="movie.poster_path === 'N/A' || movie.poster_path !== 'N/A'">
+          <img mat-card-image class="img-responsive" alt='movie.Title' *ngSwitchCase="movie.poster_path !== 'N/A'" src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" >
+          <img mat-card-image class="img-responsive" alt='not found image' *ngSwitchCase="movie.poster_path === 'N/A'" src="http://www.novelupdates.com/img/noimagefound.jpg" [ngStyle]="{width: '40px', height: '54px'}">
+        </span>
+        
+        
+      
+         <mat-card-actions>
+            
+        </mat-card-actions>  
+      </mat-card>
+  </div>
